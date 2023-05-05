@@ -1,14 +1,15 @@
-namespace Service.Sqs.Extensions;
+namespace Cff.Service.Sqs.Extensions;
 using System;
 using System.Collections.Generic;
 using Amazon.Extensions.NETCore.Setup;
 using Amazon.SQS;
+using Cff.Service.Sqs.Abstractions;
+using Cff.Service.Sqs.Config;
 using Cff.Service.Sqs.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Service.Sqs.Abstractions;
-using Service.Sqs.Config;
 using Service.Sqs.Internal;
 
 public static partial class UseSqsExtension

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -14,6 +14,10 @@
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.*" />
     <PackageReference Include="AWSSDK.SQS" Version="3.*" />
     <PackageReference Include="CommunityToolkit.HighPerformance" Version="*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\git2023\Cff.AlgebraicEffects\src\Cff.Service.Sqs\.editorconfig" />
   </ItemGroup>
 
 </Project>

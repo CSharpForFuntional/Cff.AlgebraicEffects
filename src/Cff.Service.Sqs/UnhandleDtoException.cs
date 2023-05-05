@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace Service.Sqs;
+namespace Cff.Service.Sqs;
 
 [Serializable]
 public class UnhandleDtoException : Exception

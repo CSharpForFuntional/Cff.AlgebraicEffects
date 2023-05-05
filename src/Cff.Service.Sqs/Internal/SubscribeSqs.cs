@@ -1,7 +1,7 @@
-using Service.Sqs;
-using Service.Sqs.Abstractions;
+using Cff.Service.Sqs.Abstractions;
 
 namespace Cff.Service.Sqs.Internal;
+
 
 public class SubscribeSqs<T> : ISubscribeSqs<T> where T : notnull
 {

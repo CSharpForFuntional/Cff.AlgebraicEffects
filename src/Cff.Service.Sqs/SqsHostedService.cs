@@ -1,13 +1,14 @@
+namespace Cff.Service.Sqs;
+
 using Amazon.SQS;
 using Amazon.SQS.Model;
+using Cff.Service.Sqs.Abstractions;
+using Cff.Service.Sqs.Config;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Service.Sqs.Abstractions;
-using Service.Sqs.Config;
-using Service.Sqs.Internal;
+using Cff.Service.Sqs.Internal;
 
-namespace Service.Sqs;
 
 //https://github.com/awslabs/aws-dotnet-messaging/blob/main/src/AWS.Messaging/SQS/SQSMessagePoller.cs#L18
 
@@ -22,7 +23,7 @@ public class SqsHostedService<T> : IHostedService where T : struct, Enum
 
     public IServiceProvider ServiceProvider { get; }
     public SqsOptionsContext Option { get; }
-    public ILogger Logger {get;}
+    public ILogger Logger { get; }
 
     public Task StartAsync(CancellationToken cancellationToken)
     {
@@ -93,12 +94,12 @@ public class SqsHostedService<T> : IHostedService where T : struct, Enum
                                     QueueUrl = config.Url,
                                     ReceiptHandle = a.x.ReceiptHandle
                                 });
-                               
+
                             }, default, TaskCreationOptions.LongRunning, TaskScheduler.Default).Unwrap();
 
-                        foreach(var x in q)
+                        foreach (var x in q)
                         {
-                            await x;
+                            await Task.WhenAll(x, Task.Delay(1000));
                         }
                     }
                     catch (Exception ex)

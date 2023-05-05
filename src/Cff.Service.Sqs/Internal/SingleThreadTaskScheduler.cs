@@ -1,6 +1,6 @@
 using System.Collections.Concurrent;
 
-namespace Service.Sqs.Internal;
+namespace Cff.Service.Sqs.Internal;
 
 internal sealed class SingleThreadTaskScheduler : TaskScheduler, IDisposable
 {

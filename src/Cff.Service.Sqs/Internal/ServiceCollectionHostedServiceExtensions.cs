@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Service.Sqs.Internal;
+namespace Cff.Service.Sqs.Internal;
 
 internal static class ServiceCollectionHostedServiceExtensions
 {

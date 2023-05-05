@@ -1,4 +1,4 @@
-namespace Service.Sqs.Config;
+namespace Cff.Service.Sqs.Config;
 
 public record SqsUrlsContext
 {

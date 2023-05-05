@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Amazon.SQS;
 using Amazon.SQS.Model;
-using Microsoft.Extensions.Options;
+using Cff.Service.Sqs.Abstractions;
 using CommunityToolkit.HighPerformance;
-using Service.Sqs.Abstractions;
 
-namespace Service.Sqs;
+namespace Cff.Service.Sqs;
 
 internal sealed class SqsService : ISqsService
 {
@@ -22,7 +16,7 @@ internal sealed class SqsService : ISqsService
     public IAmazonSQS AmazonSQS { get; }
     public SqsOptions Option { get; }
 
-    public async Task SendMessageAsync<T>(T AppName, object message) where T: struct, Enum
+    public async Task SendMessageAsync<T>(T AppName, object message) where T : struct, Enum
     {
         var json = TypedJsonSerializer.Serialize(message);
         var hash = Math.Abs(json.GetDjb2HashCode());

@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Service.Sqs.Abstractions;
+namespace Cff.Service.Sqs.Abstractions;
 
 public interface ISubscribeSqs<in T>
 {

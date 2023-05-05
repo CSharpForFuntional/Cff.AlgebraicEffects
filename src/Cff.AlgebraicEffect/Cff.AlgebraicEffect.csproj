@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Cff.AlgebraicEffect.Abstraction\Cff.AlgebraicEffect.Abstraction.csproj" />
     <ProjectReference Include="..\Cff.AlgebraicEffect.Http\Cff.AlgebraicEffect.Http.csproj" />
   </ItemGroup>

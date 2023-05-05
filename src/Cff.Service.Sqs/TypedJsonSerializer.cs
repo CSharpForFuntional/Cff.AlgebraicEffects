@@ -1,7 +1,7 @@
 using System.Reflection;
 using System.Text.Json;
 
-namespace Service.Sqs;
+namespace Cff.Service.Sqs;
 
 public static class TypedJsonSerializer
 {
@@ -16,8 +16,8 @@ public static class TypedJsonSerializer
 
     public static JsonDocumentOptions JsonDocumentOptions { get; } = new JsonDocumentOptions
     {
-       AllowTrailingCommas = true,
-       CommentHandling = JsonCommentHandling.Skip
+        AllowTrailingCommas = true,
+        CommentHandling = JsonCommentHandling.Skip
     };
 
 

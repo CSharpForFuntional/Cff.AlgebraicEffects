@@ -1,1 +1,2 @@
-global using SqsOptions = Microsoft.Extensions.Options.IOptions<System.Collections.Generic.Dictionary<string, Service.Sqs.Config.SqsOptionsContext>>;
+global using SqsOptions = Microsoft.Extensions.Options.IOptions<System.Collections.Generic.Dictionary<string, Cff.Service.Sqs.Config.SqsOptionsContext>>;
+

@@ -1,6 +1,6 @@
 using Amazon.Runtime;
 
-namespace Service.Sqs.Internal;
+namespace Cff.Service.Sqs.Internal;
 
 internal sealed class SqsHttpClientFactory : HttpClientFactory
 {
