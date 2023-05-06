@@ -21,8 +21,7 @@ public class SqsSpec
               SqsConfigs: 
               - Url : "https://sqs.ap-northeast-2.amazonaws.com/123456789012/test-1"
               - Url : "https://sqs.ap-northeast-2.amazonaws.com/123456789012/test-2"
-            TestApp2: 
-              <<: *default
+            TestApp2: *default
             """).AsMemory().AsStream();
 
 
