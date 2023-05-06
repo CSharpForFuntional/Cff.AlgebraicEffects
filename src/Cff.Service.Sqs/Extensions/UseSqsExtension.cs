@@ -1,6 +1,3 @@
-namespace Cff.Service.Sqs.Extensions;
-using System;
-using System.Collections.Generic;
 using Amazon.Extensions.NETCore.Setup;
 using Amazon.SQS;
 using Cff.Service.Sqs.Abstractions;
@@ -9,9 +6,8 @@ using Cff.Service.Sqs.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Service.Sqs.Abstractions;
-using Service.Sqs.Internal;
 
+namespace Cff.Service.Sqs.Extensions;
 public static partial class UseSqsExtension
 {
     private static void TryAddDefaultAwsOptions(IConfiguration config, IServiceCollection services)
