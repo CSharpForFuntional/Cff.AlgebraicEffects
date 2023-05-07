@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.*" />
     <PackageReference Include="AWSSDK.SQS" Version="3.*" />
   </ItemGroup>

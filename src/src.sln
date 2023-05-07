@@ -20,6 +20,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.AlgebraicEffect.Sqs.Tests", "Cff.AlgebraicEffect.Sqs.Tests\Cff.AlgebraicEffect.Sqs.Tests.csproj", "{54494B46-A489-4F37-907A-C0E6E0975F2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.AlgebraicEffect.Dapper", "Cff.AlgebraicEffect.Dapper\Cff.AlgebraicEffect.Dapper.csproj", "{EFF132CE-605E-49A7-9068-D49C7ED3BB52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.AlgebraicEffect.Http.Tests", "Cff.AlgebraicEffect.Http.Tests\Cff.AlgebraicEffect.Http.Tests.csproj", "{E00A94DB-E219-45B9-8B10-A7A818BC2269}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Cff.AlgebraicEffect.Http.FSharp.Tests", "Cff.AlgebraicEffect.Http.FSharp.Tests\Cff.AlgebraicEffect.Http.FSharp.Tests.fsproj", "{09209DC8-2653-4FFC-8892-DC21877FDC43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.SampleApp", "Cff.SampleApp\Cff.SampleApp.csproj", "{64C52B15-08E9-4C29-B0EB-C9671A13E867}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +58,22 @@ Global
 		{54494B46-A489-4F37-907A-C0E6E0975F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54494B46-A489-4F37-907A-C0E6E0975F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54494B46-A489-4F37-907A-C0E6E0975F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFF132CE-605E-49A7-9068-D49C7ED3BB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFF132CE-605E-49A7-9068-D49C7ED3BB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFF132CE-605E-49A7-9068-D49C7ED3BB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFF132CE-605E-49A7-9068-D49C7ED3BB52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E00A94DB-E219-45B9-8B10-A7A818BC2269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E00A94DB-E219-45B9-8B10-A7A818BC2269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E00A94DB-E219-45B9-8B10-A7A818BC2269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E00A94DB-E219-45B9-8B10-A7A818BC2269}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09209DC8-2653-4FFC-8892-DC21877FDC43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09209DC8-2653-4FFC-8892-DC21877FDC43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09209DC8-2653-4FFC-8892-DC21877FDC43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09209DC8-2653-4FFC-8892-DC21877FDC43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C52B15-08E9-4C29-B0EB-C9671A13E867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C52B15-08E9-4C29-B0EB-C9671A13E867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C52B15-08E9-4C29-B0EB-C9671A13E867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C52B15-08E9-4C29-B0EB-C9671A13E867}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

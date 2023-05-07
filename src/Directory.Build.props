@@ -11,6 +11,7 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <ItemGroup>
+	<FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="*" PrivateAssets="All" />
     <PackageReference Include="LanguageExt.Core" Version="4.*" />
 	<PackageReference Include="CommunityToolkit.HighPerformance" Version="*" />

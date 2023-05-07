@@ -6,12 +6,29 @@ using Cff.AlgebraicEffect.Abstraction;
 using Cff.AlgebraicEffect.Sqs.Internal;
 using CommunityToolkit.HighPerformance;
 using LanguageExt;
+using Microsoft.Extensions.Options;
+using Microsoft.Extensions.DependencyInjection;
 using static Schedule;
+using Cff.AlgebraicEffect.Sqs.Config;
 
-public interface IHasSqs<RT> : IHas<RT, IAmazonSQS> where RT : struct, IHasSqs<RT>
+public interface IHasSqs<RT> : IHas<RT, IServiceProvider>, IHas<RT, IAmazonSQS> 
+    where RT : struct, IHasSqs<RT>
 {
-    public Aff<RT, Unit> SendAff(IList<string> urls, object message, string? hash1 = null) =>
-        from sqs in Eff
+
+    private static Eff<RT, IAmazonSQS> AmazonSqsEff => IHas<RT, IAmazonSQS>.Eff;
+    private static Eff<RT, IServiceProvider> ServiceProviderEff => IHas<RT, IServiceProvider>.Eff;
+
+
+    public static Aff<RT, Unit> SendAff<T>(object message, string? hash1 = null)
+        where T : SqsConfig =>
+        from sp in ServiceProviderEff
+        let urls = sp.GetRequiredService<IOptions<T>>().Value.SqsConfigs.Select(x => x.Url).ToArr()
+        from _1 in SendAff(urls, message, hash1)
+        select unit;
+
+
+    public static Aff<RT, Unit> SendAff(Arr<string> urls, object message, string? hash1 = null) =>
+        from sqs in AmazonSqsEff
         from ct in cancelToken<RT>()
         let json = TypedJsonSerializer.Serialize(message)
         let hash = hash1 switch

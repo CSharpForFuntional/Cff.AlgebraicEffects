@@ -7,9 +7,17 @@ using System.Threading.Tasks;
 namespace Cff.AlgebraicEffect.Sqs.Config;
 
 
-public abstract record SqsConfig
+public class SqsConfigurations : Dictionary<string, SqsConfig>
 {
-    public required IList<SqsConfigItem> SqsConfigs { get; init; } = new List<SqsConfigItem>();
+}
+
+public class SmsConfigurations : Dictionary<string, ISmsConfig>
+{
+}
+
+public record SqsConfig
+{
+    public required List<SqsConfigItem> SqsConfigs { get; init; } 
 
     public record SqsConfigItem
     {
@@ -18,3 +26,7 @@ public abstract record SqsConfig
     }
 }
 
+public record ISmsConfig
+{
+    public required string SmsUrl { get; init; }
+}

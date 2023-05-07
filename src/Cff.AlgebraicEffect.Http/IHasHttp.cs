@@ -14,7 +14,7 @@ public interface IHasHttp<RT> : IHas<RT, HttpContext> where RT : struct, IHasHtt
         PropertyNameCaseInsensitive = true
     };
 
-    public static Aff<RT, T> ReadFromJsonAff<T>() =>
+    public static Aff<RT, T> ReadRequestAff<T>() =>
         from http in Eff
         from res in Aff(() => http.Request.ReadFromJsonAsync<T>
         (
@@ -23,7 +23,7 @@ public interface IHasHttp<RT> : IHas<RT, HttpContext> where RT : struct, IHasHtt
         ))
         select res;
 
-    public static Aff<RT, Unit> ExecuteAff<T>(Aff<RT, T> aff) =>
+    public static Aff<RT, Unit> WriteResponseAff<T>(Aff<RT, T> aff) =>
         from http in Eff
         from res in aff.Map(x =>
         {

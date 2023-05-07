@@ -1,3 +1,4 @@
+using Cff.AlgebraicEffect.Extensions;
 using Cff.AlgebraicEffect.Sqs.Config;
 using CommunityToolkit.HighPerformance;
 using Microsoft.Extensions.Configuration;
@@ -9,7 +10,6 @@ using System.Text;
 
 namespace Cff.AlgebraicEffect.Sqs.Tests;
 
-public record TestApp : SqsConfig;
 
 public class SqsSpec
 {
@@ -17,22 +17,28 @@ public class SqsSpec
     public async Task Work()
     {
         using var appsettings = Encoding.Default.GetBytes("""
-            TestApp: &default
-              SqsConfigs: 
-              - Url : "https://sqs.ap-northeast-2.amazonaws.com/123456789012/test-1"
-              - Url : "https://sqs.ap-northeast-2.amazonaws.com/123456789012/test-2"
             TestApp2: *default
+            TestApp1: &default
+              SmsUrl: https://sms.ap-northeast-2.amazonaws.com
+              SqsConfigs: 
+              - Url : https://sqs.ap-northeast-2.amazonaws.com/123456789012/test-1
+              - Url : https://sqs.ap-northeast-2.amazonaws.com/123456789012/test-2
             """).AsMemory().AsStream();
 
+        var builder = Host.CreateDefaultBuilder()
+                          .ConfigureAppConfiguration((context, config) =>
+                          {
+                              config.Sources.Clear();
+                              _ = config.AddYamlStream(appsettings);
+                          })
+                          .UseSqs()
+                          .UseSms();
+                      
+        var app = builder.Build();
 
-        var host = Host.CreateApplicationBuilder();
+        var sqsOption = app.Services.GetRequiredService<IOptions<SqsConfigurations>>().Value;
+        var smsOption = app.Services.GetRequiredService<IOptions<SmsConfigurations>>().Value;
 
-        host.Configuration.AddYamlStream(appsettings);
-
-        host.Services.AddOptions<TestApp>().BindConfiguration("TestApp2");
-
-        var app = host.Build();
-
-        var option = app.Services.GetService<IOptions<TestApp>>();
+        
     }
 }

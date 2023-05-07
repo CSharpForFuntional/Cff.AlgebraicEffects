@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Cff.AlgebraicEffect.Abstraction\Cff.AlgebraicEffect.Abstraction.csproj" />
     <ProjectReference Include="..\Cff.AlgebraicEffect.Http\Cff.AlgebraicEffect.Http.csproj" />
+    <ProjectReference Include="..\Cff.AlgebraicEffect.Sqs\Cff.AlgebraicEffect.Sqs.csproj" />
   </ItemGroup>
 
 </Project>
