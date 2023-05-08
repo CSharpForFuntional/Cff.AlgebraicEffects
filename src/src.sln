@@ -24,8 +24,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.AlgebraicEffect.Dapper"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.AlgebraicEffect.Http.Tests", "Cff.AlgebraicEffect.Http.Tests\Cff.AlgebraicEffect.Http.Tests.csproj", "{E00A94DB-E219-45B9-8B10-A7A818BC2269}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Cff.AlgebraicEffect.Http.FSharp.Tests", "Cff.AlgebraicEffect.Http.FSharp.Tests\Cff.AlgebraicEffect.Http.FSharp.Tests.fsproj", "{09209DC8-2653-4FFC-8892-DC21877FDC43}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.SampleApp", "Cff.SampleApp\Cff.SampleApp.csproj", "{64C52B15-08E9-4C29-B0EB-C9671A13E867}"
 EndProject
 Global
@@ -66,10 +64,6 @@ Global
 		{E00A94DB-E219-45B9-8B10-A7A818BC2269}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E00A94DB-E219-45B9-8B10-A7A818BC2269}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E00A94DB-E219-45B9-8B10-A7A818BC2269}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09209DC8-2653-4FFC-8892-DC21877FDC43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09209DC8-2653-4FFC-8892-DC21877FDC43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09209DC8-2653-4FFC-8892-DC21877FDC43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09209DC8-2653-4FFC-8892-DC21877FDC43}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64C52B15-08E9-4C29-B0EB-C9671A13E867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{64C52B15-08E9-4C29-B0EB-C9671A13E867}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64C52B15-08E9-4C29-B0EB-C9671A13E867}.Release|Any CPU.ActiveCfg = Release|Any CPU

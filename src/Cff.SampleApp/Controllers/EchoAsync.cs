@@ -2,7 +2,6 @@
 using Cff.AlgebraicEffect.Abstraction;
 using Cff.AlgebraicEffect.Http;
 using Cff.SampleApp.Dto;
-using LanguageExt.Effects.Traits;
 
 namespace Cff.SampleApp.Controllers;
 
