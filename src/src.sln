@@ -11,20 +11,24 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cff.AlgebraicEffect.Http", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cff.Service.Sqs", "Cff.Service.Sqs\Cff.Service.Sqs.csproj", "{7E1D6A8F-41F2-42E4-85B9-5FCC354FC1EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.AlgebraicEffect.Sqs", "Cff.AlgebraicEffect.Sqs\Cff.AlgebraicEffect.Sqs.csproj", "{F7F414EE-A468-4073-8095-F63C1EF4DBB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cff.AlgebraicEffect.Sqs", "Cff.AlgebraicEffect.Sqs\Cff.AlgebraicEffect.Sqs.csproj", "{F7F414EE-A468-4073-8095-F63C1EF4DBB2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루션 항목", "{116892EA-9C3B-48F8-9EAF-890CFF0D3185}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.AlgebraicEffect.Sqs.Tests", "Cff.AlgebraicEffect.Sqs.Tests\Cff.AlgebraicEffect.Sqs.Tests.csproj", "{54494B46-A489-4F37-907A-C0E6E0975F2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cff.AlgebraicEffect.Sqs.Tests", "Cff.AlgebraicEffect.Sqs.Tests\Cff.AlgebraicEffect.Sqs.Tests.csproj", "{54494B46-A489-4F37-907A-C0E6E0975F2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.AlgebraicEffect.Dapper", "Cff.AlgebraicEffect.Dapper\Cff.AlgebraicEffect.Dapper.csproj", "{EFF132CE-605E-49A7-9068-D49C7ED3BB52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cff.AlgebraicEffect.Dapper", "Cff.AlgebraicEffect.Dapper\Cff.AlgebraicEffect.Dapper.csproj", "{EFF132CE-605E-49A7-9068-D49C7ED3BB52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.AlgebraicEffect.Http.Tests", "Cff.AlgebraicEffect.Http.Tests\Cff.AlgebraicEffect.Http.Tests.csproj", "{E00A94DB-E219-45B9-8B10-A7A818BC2269}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cff.AlgebraicEffect.Http.Tests", "Cff.AlgebraicEffect.Http.Tests\Cff.AlgebraicEffect.Http.Tests.csproj", "{E00A94DB-E219-45B9-8B10-A7A818BC2269}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.SampleApp", "Cff.SampleApp\Cff.SampleApp.csproj", "{64C52B15-08E9-4C29-B0EB-C9671A13E867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cff.SampleApp", "Cff.SampleApp\Cff.SampleApp.csproj", "{64C52B15-08E9-4C29-B0EB-C9671A13E867}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.AlgebraicEffect.K8s", "Cff.AlgebraicEffect.K8s\Cff.AlgebraicEffect.K8s.csproj", "{69B81D10-4E14-435D-A783-192D3FB8DECD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cff.AlgebraicEffect.K8s.Tests", "Cff.AlgebraicEffect.K8s.Tests\Cff.AlgebraicEffect.K8s.Tests.csproj", "{FC4C1055-8E46-4282-BAC9-060015D12D37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +72,14 @@ Global
 		{64C52B15-08E9-4C29-B0EB-C9671A13E867}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64C52B15-08E9-4C29-B0EB-C9671A13E867}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64C52B15-08E9-4C29-B0EB-C9671A13E867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69B81D10-4E14-435D-A783-192D3FB8DECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69B81D10-4E14-435D-A783-192D3FB8DECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69B81D10-4E14-435D-A783-192D3FB8DECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69B81D10-4E14-435D-A783-192D3FB8DECD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC4C1055-8E46-4282-BAC9-060015D12D37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC4C1055-8E46-4282-BAC9-060015D12D37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC4C1055-8E46-4282-BAC9-060015D12D37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC4C1055-8E46-4282-BAC9-060015D12D37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

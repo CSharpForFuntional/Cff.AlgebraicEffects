@@ -10,7 +10,8 @@ public interface IHasHttp<RT> : IHas<RT, HttpContext> where RT : struct, IHas<RT
 {
     public static JsonSerializerOptions JsonSerializerOptions { get; } = new()
     {
-        PropertyNameCaseInsensitive = true
+        PropertyNameCaseInsensitive = true,
+        AllowTrailingCommas = true
     };
 
     public static Aff<RT, T> Request<T>() =>
