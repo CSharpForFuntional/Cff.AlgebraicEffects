@@ -19,10 +19,9 @@ public interface IHasSqs<RT> : IHas<RT, IServiceProvider>, IHas<RT, IAmazonSQS>
     private static Eff<RT, IServiceProvider> ServiceProviderEff => IHas<RT, IServiceProvider>.Eff;
 
 
-    public static Aff<RT, Unit> SendAff<T>(object message, string? hash1 = null)
-        where T : SqsConfig =>
+    public static Aff<RT, Unit> SendAff<T>(object message, string? hash1 = null) where T : SqsConfig =>
         from sp in ServiceProviderEff
-        let urls = sp.GetRequiredService<IOptions<T>>().Value.SqsConfigs.Select(x => x.Url).ToArr()
+        let urls = sp.GetRequiredService<IOptions<T>>().Value.SqsConfigs.Map(x => x.Url).ToArr()
         from _1 in SendAff(urls, message, hash1)
         select unit;
 
@@ -36,12 +35,13 @@ public interface IHasSqs<RT> : IHas<RT, IServiceProvider>, IHas<RT, IAmazonSQS>
             { } v => Math.Abs(v.GetDjb2HashCode()),
             _ => Math.Abs(json.GetDjb2HashCode())
         }
-        from _1 in Aff(() => sqs.SendMessageAsync(new SendMessageRequest
+        let req = new SendMessageRequest
         {
             QueueUrl = urls[hash % urls.Count],
             MessageBody = json,
             MessageGroupId = $"{hash}"
-        }, ct).ToValue()).RetryWhile
+        }
+        from _1 in Aff(() => sqs.SendMessageAsync(req, ct).ToValue()).RetryWhile
         (
             fibonacci(1 * sec) | recurs(5),
             error => error.ToException() switch

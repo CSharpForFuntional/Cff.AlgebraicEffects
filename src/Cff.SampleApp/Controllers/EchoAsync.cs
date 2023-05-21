@@ -5,25 +5,25 @@ using Cff.SampleApp.Dto;
 
 namespace Cff.SampleApp.Controllers;
 
-using static IHasHttp<RunTime>;
-
 public static partial class Prelude
 {
     public static async ValueTask EchoAsync
     (
         HttpContext httpContext,
         CancellationToken ct
-    ) 
+    )
     {
-        var q = WriteResponseAff
+        using var cts = CancellationTokenSource.CreateLinkedTokenSource(ct);
+        await Process<RunTime>().Run(new(httpContext, cts));
+    }
+
+    public static Aff<RT, Unit> Process<RT>() where RT: struct, IHasHttp<RT> =>
+        IHasHttp<RT>.ResponseAff
         (
-            from dto in ReadRequestAff<EchoDto>()
+            from dto in IHasHttp<RT>.RequestAff<EchoDto>()
             select dto
         );
-
-        using var cts = CancellationTokenSource.CreateLinkedTokenSource(ct);
-        await q.Run(new(httpContext, cts));
-    }
+    
 }
 
 file readonly record struct RunTime
