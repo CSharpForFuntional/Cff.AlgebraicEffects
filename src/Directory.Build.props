@@ -6,9 +6,8 @@
     <PackageProjectUrl>https://github.com/seungyongshim/ModificationHere</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/seungyongshim/ModificationHere/blob/master/LICENSE</PackageLicenseUrl>
     <NoWarn>$(NoWarn);CS1591;xUnit1013</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <LangVersion>Preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
 	<FrameworkReference Include="Microsoft.AspNetCore.App" />

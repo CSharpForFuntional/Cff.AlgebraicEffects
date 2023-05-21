@@ -1,10 +1,10 @@
 using Cff.SampleApp.Dto;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
@@ -12,10 +12,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.MapPost("/echo", EchoAsync) 
-   .Accepts<EchoDto>("application/json")
-   .WithName("Echo")
-   .WithOpenApi();
+app.MapPost("/echo", EchoAsync).Accepts<EchoDto>("application/json").WithName("Echo").WithOpenApi();
 
 await app.RunAsync();
 

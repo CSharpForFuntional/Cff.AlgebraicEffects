@@ -8,13 +8,12 @@ using Microsoft.AspNetCore.Http;
 
 public interface IHasHttp<RT> : IHas<RT, HttpContext> where RT : struct, IHas<RT, HttpContext>
 {
-
     public static JsonSerializerOptions JsonSerializerOptions { get; } = new()
     {
         PropertyNameCaseInsensitive = true
     };
 
-    public static Aff<RT, T> RequestAff<T>() =>
+    public static Aff<RT, T> Request<T>() =>
         from http in Eff
         from res in Aff(() => http.Request.ReadFromJsonAsync<T>
         (
@@ -23,7 +22,7 @@ public interface IHasHttp<RT> : IHas<RT, HttpContext> where RT : struct, IHas<RT
         ))
         select res;
 
-    public static Aff<RT, Unit> ResponseAff<T>(Aff<RT, T> aff) =>
+    public static Aff<RT, Unit> Response<T>(Aff<RT, T> aff) =>
         from http in Eff
         from res in aff.Map(x =>
         {

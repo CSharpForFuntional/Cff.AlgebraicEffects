@@ -41,7 +41,7 @@ public interface IHasSqs<RT> : IHas<RT, IServiceProvider>, IHas<RT, IAmazonSQS>
             MessageBody = json,
             MessageGroupId = $"{hash}"
         }
-        from _1 in Aff(() => sqs.SendMessageAsync(req, ct).ToValue()).RetryWhile
+        from _1 in Aff(sqs.SendMessageAsync(req, ct).ToValue).RetryWhile
         (
             fibonacci(1 * sec) | recurs(5),
             error => error.ToException() switch

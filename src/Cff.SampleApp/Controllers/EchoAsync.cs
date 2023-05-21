@@ -2,35 +2,36 @@
 using Cff.AlgebraicEffect.Abstraction;
 using Cff.AlgebraicEffect.Http;
 using Cff.SampleApp.Dto;
+using FluentValidation;
 
 namespace Cff.SampleApp.Controllers;
 
+using static IHasHttp<Runtime>;
+
 public static partial class Prelude
 {
-    public static async ValueTask EchoAsync
-    (
-        HttpContext httpContext,
-        CancellationToken ct
-    )
+    public static async ValueTask EchoAsync(HttpContext httpContext, CancellationToken ct)
     {
-        using var cts = CancellationTokenSource.CreateLinkedTokenSource(ct);
-        await Process<RunTime>().Run(new(httpContext, cts));
-    }
+        using CancellationTokenSource cts = CancellationTokenSource.CreateLinkedTokenSource(ct);
+        await IO().Run(new(httpContext, cts));
 
-    public static Aff<RT, Unit> Process<RT>() where RT: struct, IHasHttp<RT> =>
-        IHasHttp<RT>.ResponseAff
+        static Aff<Runtime, Unit> IO() => Response
         (
-            from dto in IHasHttp<RT>.RequestAff<EchoDto>()
+            from dto in Request<EchoDto>()
             select dto
         );
-    
+    }
 }
 
-file readonly record struct RunTime
+file readonly record struct Runtime
 (
     HttpContext HttpContext,
     CancellationTokenSource CancellationTokenSource
-) : IHasHttp<RunTime>
+) : IHasHttp<Runtime>,
+    IHasValid<Runtime>
 {
-    HttpContext IHas<RunTime, HttpContext>.It => HttpContext;
+   
+
+    HttpContext IHas<Runtime, HttpContext>.It => HttpContext;
+    IValidator IHas<Runtime, IValidator>.It { get; }
 }

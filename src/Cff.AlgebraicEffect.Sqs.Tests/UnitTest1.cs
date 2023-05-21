@@ -38,7 +38,5 @@ public class SqsSpec
 
         var sqsOption = app.Services.GetRequiredService<IOptions<SqsConfigurations>>().Value;
         var smsOption = app.Services.GetRequiredService<IOptions<SmsConfigurations>>().Value;
-
-        
     }
 }
